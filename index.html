@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>THE SHIFT® FAMILY CIRCLE — Symphony Awareness® Institut</title>
+  <meta name="description" content="Das 3-monatige Familientransformations-Programm für Familien mit hochsensiblen und neurodiversen Kindern. Mit Pferden, systemischer Aufstellung und echter Tiefe. Südoststeiermark." />
+  <meta name="keywords" content="Familienbegleitung ADHS Österreich, hochsensibles Kind Coaching, pferdegestützte Therapie Familie Steiermark, Familienaufstellung Pferde, Symphony Awareness" />
+  <meta property="og:title" content="THE SHIFT® FAMILY CIRCLE — Symphony Awareness® Institut" />
+  <meta property="og:description" content="Wenn eine Familie sich selbst versteht, kann das Kind endlich sein. 3-monatiges Transformationsprogramm mit Pferden." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       DESIGN TOKENS — Symphony Awareness® Institut
+       ============================================= */
+    :root {
+      --gold:        #c9a84c;
+      --gold-light:  #e0c37a;
+      --gold-muted:  #c9a84c33;
+      --dark:        #1a1208;
+      --dark-mid:    #2a1f0e;
+      --dark-soft:   #34322d;
+      --charcoal:    #1a1a19;
+      --cream:       #faf6ef;
+      --cream-warm:  #f8f8f7;
+      --gray-mid:    #858481;
+      --gray-light:  #ccc;
+      --font-serif:  'Great Vibes', cursive;
+      --font-sans:   'Inter', sans-serif;
+    }
+
+    /* =============================================
+       RESET & BASE
+       ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--cream);
+      color: var(--dark);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* =============================================
+       TYPOGRAPHY
+       ============================================= */
+    .script { font-family: var(--font-serif); font-weight: 400; }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--dark);
+    }
+
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.5rem); }
+    h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 500; }
+
+    p { margin-bottom: 1rem; color: var(--dark-soft); }
+    p:last-child { margin-bottom: 0; }
+
+    strong { color: var(--dark); font-weight: 600; }
+
+    /* =============================================
+       LAYOUT
+       ============================================= */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .container--narrow {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section { padding: 5rem 0; }
+
+    /* =============================================
+       NAVIGATION
+       ============================================= */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background-color: rgba(26, 18, 8, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+      padding: 1rem 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav-logo {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-logo span {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--dark) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 2px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--gold-light) !important; }
+
+    /* =============================================
+       HERO
+       ============================================= */
+    .hero {
+      min-height: 100vh;
+      background-color: var(--dark);
+      background-image:
+        linear-gradient(to bottom, rgba(26,18,8,0.6) 0%, rgba(26,18,8,0.85) 100%),
+        url('https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=1600&q=80');
+      background-size: cover;
+      background-position: center 30%;
+      display: flex;
+      align-items: center;
+      padding: 8rem 0 5rem;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, var(--cream));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      padding: 0.4rem 1rem;
+      border-radius: 2px;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-script {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: rgba(250, 246, 239, 0.8);
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-proof {
+      font-size: 0.8rem;
+      color: rgba(250, 246, 239, 0.5);
+      margin-top: 1.25rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-proof span {
+      display: inline-block;
+      padding: 0 0.75rem;
+      border-right: 1px solid rgba(250,246,239,0.2);
+    }
+
+    .hero-proof span:last-child { border-right: none; }
+
+    /* =============================================
+       BUTTONS
+       ============================================= */
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      color: var(--dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201, 168, 76, 0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+
+    .btn-outline:hover {
+      background: var(--gold-muted);
+      color: var(--gold-light);
+    }
+
+    .btn-dark {
+      background: var(--dark);
+      color: var(--cream);
+    }
+
+    .btn-dark:hover {
+      background: var(--dark-mid);
+      transform: translateY(-2px);
+    }
+
+    /* =============================================
+       DIVIDER / ORNAMENT
+       ============================================= */
+    .ornament {
+      text-align: center;
+      margin: 0.5rem 0 2rem;
+      color: var(--gold);
+      font-size: 1.2rem;
+      letter-spacing: 0.3em;
+      opacity: 0.6;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .gold-line {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1.25rem auto;
+    }
+
+    /* =============================================
+       SECTION: PROBLEM
+       ============================================= */
+    .section-problem {
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .recognition-list {
+      list-style: none;
+      text-align: left;
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    .recognition-list li {
+      padding: 0.75rem 0 0.75rem 2rem;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+      color: var(--dark-soft);
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .recognition-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.7rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .callout {
+      display: inline-block;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--dark);
+      border-left: 3px solid var(--gold);
+      padding: 0.75rem 1.5rem;
+      margin-top: 2rem;
+      text-align: left;
+      background: rgba(201, 168, 76, 0.06);
+    }
+
+    /* =============================================
+       SECTION: PROGRAMM (dark bg)
+       ============================================= */
+    .section-dark {
+      background: var(--dark);
+      color: var(--cream);
+    }
+
+    .section-dark h2,
+    .section-dark h3,
+    .section-dark strong { color: var(--cream); }
+
+    .section-dark p { color: rgba(250, 246, 239, 0.75); }
+
+    .section-dark .section-tag { color: var(--gold); }
+
+    .program-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+    }
+
+    .program-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .program-meta-item {
+      text-align: center;
+    }
+
+    .program-meta-item .label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .program-meta-item .value {
+      font-size: 1rem;
+      color: var(--cream);
+      font-weight: 500;
+    }
+
+    /* Module Cards */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .module-card {
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      padding: 2rem;
+      border-radius: 4px;
+      background: rgba(201, 168, 76, 0.04);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .module-card:hover {
+      border-color: rgba(201, 168, 76, 0.5);
+      background: rgba(201, 168, 76, 0.08);
+    }
+
+    .module-number {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .module-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 0.25rem;
+    }
+
+    .module-sub {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .module-card p { font-size: 0.9rem; margin-bottom: 1rem; }
+
+    .module-includes {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    .module-includes li {
+      font-size: 0.85rem;
+      color: rgba(250, 246, 239, 0.65);
+      padding: 0.3rem 0 0.3rem 1.25rem;
+      position: relative;
+    }
+
+    .module-includes li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    .module-goal {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--gold);
+      border-top: 1px solid rgba(201, 168, 76, 0.2);
+      padding-top: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    /* =============================================
+       SECTION: FÜR WEN
+       ============================================= */
+    .section-forwho {
+      background: var(--cream-warm);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+    .check-box {
+      background: var(--cream);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      border-radius: 4px;
+      padding: 1.75rem;
+    }
+
+    .check-box h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .check-list {
+      list-style: none;
+    }
+
+    .check-list li {
+      font-size: 0.9rem;
+      color: var(--dark-soft);
+      padding: 0.6rem 0 0.6rem 1.75rem;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      position: relative;
+    }
+
+    .check-list li:last-child { border-bottom: none; }
+
+    .check-list.yes li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+    .check-list.no  li::before { content: '×'; position: absolute; left: 0; color: var(--gray-mid); font-weight: 700; }
+
+    /* =============================================
+       SECTION: PFERDE
+       ============================================= */
+    .section-horses {
+      background: var(--dark);
+      color: var(--cream);
+    }
+
+    .horses-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) { .horses-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+    .horses-image-wrap {
+      position: relative;
+    }
+
+    .horses-image-wrap img {
+      border-radius: 4px;
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      filter: brightness(0.9);
+    }
+
+    .horses-image-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: 4px;
+      z-index: 0;
+    }
+
+    .horses-image-wrap img { position: relative; z-index: 1; }
+
+    .horses-text h2 { color: var(--cream); margin-bottom: 1.5rem; }
+    .horses-text p  { color: rgba(250,246,239,0.75); }
+
+    .quote-block {
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: rgba(201, 168, 76, 0.06);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .quote-block strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--gold);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* =============================================
+       SECTION: ÜBER DAS INSTITUT
+       ============================================= */
+    .section-about {
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+
+    .trust-badge {
+      text-align: center;
+      max-width: 180px;
+    }
+
+    .trust-badge .icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--gold);
+    }
+
+    .trust-badge .label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--dark);
+      letter-spacing: 0.05em;
+    }
+
+    .trust-badge p {
+      font-size: 0.8rem;
+      color: var(--gray-mid);
+      margin-top: 0.25rem;
+    }
+
+    /* =============================================
+       SECTION: TESTIMONIALS
+       ============================================= */
+    .section-testimonials {
+      background: var(--cream-warm);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: var(--cream);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: 4px;
+      padding: 2rem;
+    }
+
+    .testimonial-quote {
+      font-size: 0.95rem;
+      color: var(--dark-soft);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-quote::before { content: '"'; color: var(--gold); font-size: 2rem; line-height: 0; vertical-align: -0.4rem; margin-right: 0.25rem; }
+    .testimonial-quote::after  { content: '"'; color: var(--gold); font-size: 2rem; line-height: 0; vertical-align: -0.4rem; margin-left: 0.25rem; }
+
+    .testimonial-author {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--dark);
+      letter-spacing: 0.05em;
+    }
+
+    .testimonial-author span {
+      display: block;
+      color: var(--gray-mid);
+      font-weight: 400;
+      margin-top: 0.2rem;
+    }
+
+    .pilot-notice {
+      background: rgba(201, 168, 76, 0.08);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      border-radius: 4px;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      margin-top: 2rem;
+      font-style: italic;
+      color: var(--dark-soft);
+      font-size: 0.95rem;
+    }
+
+    /* =============================================
+       SECTION: PREIS
+       ============================================= */
+    .section-preis {
+      background: var(--dark);
+      color: var(--cream);
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) { .price-grid { grid-template-columns: 1fr; } }
+
+    .price-card {
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      border-radius: 4px;
+      padding: 2.5rem;
+      background: rgba(255,255,255,0.03);
+      position: relative;
+    }
+
+    .price-card.featured {
+      border-color: var(--gold);
+      background: rgba(201, 168, 76, 0.06);
+    }
+
+    .price-card .badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .price-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .price-amount {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .price-period {
+      font-size: 0.85rem;
+      color: rgba(250, 246, 239, 0.5);
+      margin-bottom: 1.5rem;
+    }
+
+    .price-includes {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .price-includes li {
+      font-size: 0.85rem;
+      color: rgba(250, 246, 239, 0.75);
+      padding: 0.4rem 0 0.4rem 1.5rem;
+      position: relative;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .price-includes li:last-child { border-bottom: none; }
+
+    .price-includes li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    .price-note {
+      font-size: 0.8rem;
+      color: rgba(250,246,239,0.45);
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
+    .compare-note {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: rgba(250,246,239,0.65);
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .compare-note strong { color: var(--gold); }
+
+    .patronage-block {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding: 2rem;
+      background: rgba(201,168,76,0.06);
+      border-radius: 4px;
+      border: 1px solid rgba(201,168,76,0.2);
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .patronage-block p {
+      color: rgba(250,246,239,0.75);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* =============================================
+       SECTION: FAQ
+       ============================================= */
+    .section-faq {
+      background: var(--cream);
+    }
+
+    .faq-list {
+      max-width: 720px;
+      margin: 3rem auto 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.25rem 2.5rem 1.25rem 0;
+      text-align: left;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover { color: var(--gold); }
+
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--gold);
+      transition: transform 0.2s;
+    }
+
+    .faq-question.open::after {
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 0 1.25rem;
+      font-size: 0.9rem;
+      color: var(--dark-soft);
+      line-height: 1.75;
+    }
+
+    .faq-answer.open { display: block; }
+
+    /* =============================================
+       SECTION: CTA ABSCHLUSS
+       ============================================= */
+    .section-cta {
+      background: var(--dark);
+      text-align: center;
+      padding: 7rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(201,168,76,0.08) 0%, transparent 70%);
+    }
+
+    .section-cta > * { position: relative; z-index: 1; }
+
+    .cta-script {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-cta h2 { color: var(--cream); margin-bottom: 1rem; }
+    .section-cta p  { color: rgba(250,246,239,0.65); font-size: 1rem; max-width: 500px; margin: 0 auto 2.5rem; }
+
+    .cta-note {
+      margin-top: 1.25rem;
+      font-size: 0.8rem;
+      color: rgba(250,246,239,0.35);
+      font-style: italic;
+    }
+
+    /* =============================================
+       FOOTER
+       ============================================= */
+    footer {
+      background: var(--dark-mid);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.75rem;
+      color: var(--gray-mid);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: rgba(250,246,239,0.4);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(250,246,239,0.25);
+    }
+
+    /* =============================================
+       UTILITIES
+       ============================================= */
+    .text-center { text-align: center; }
+    .text-gold    { color: var(--gold); }
+    .mt-1  { margin-top: 0.5rem; }
+    .mt-2  { margin-top: 1rem; }
+    .mt-3  { margin-top: 1.5rem; }
+    .mt-4  { margin-top: 2rem; }
+    .mt-6  { margin-top: 3rem; }
+
+    /* =============================================
+       RESPONSIVE
+       ============================================= */
+    @media (max-width: 768px) {
+      section { padding: 3.5rem 0; }
+      .hero   { padding: 7rem 0 4rem; }
+      .nav-cta { display: none; }
+      .modules-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span>Symphony Awareness</span>
+        Institut
+      </div>
+      <a href="#vorgespräch" class="nav-cta">Vorgespräch buchen</a>
+    </div>
+  </nav>
+
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-badge">THE SHIFT® FAMILY CIRCLE &nbsp;·&nbsp; Pilotprogramm 2026</div>
+      <span class="hero-script">Wenn eine Familie sich selbst versteht,</span>
+      <h1>kann das Kind endlich sein.</h1>
+      <p class="hero-sub">
+        Das 3-monatige Begleitprogramm für Familien mit hochsensiblen, neurodiversen oder ADHS-Kindern —
+        mit Pferden, Systemaufstellung und echter Tiefe.
+      </p>
+      <a href="#vorgespräch" class="btn btn-primary">Jetzt Platz sichern — kostenfreies Vorgespräch</a>
+      <p class="hero-proof">
+        <span>Nur 4 Familien pro Circle</span>
+        <span>Südoststeiermark</span>
+        <span>Plätze begrenzt</span>
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ============ PROBLEM ============ -->
+  <section class="section-problem">
+    <div class="container--narrow text-center">
+      <span class="section-tag">Das kennt ihr vielleicht</span>
+      <h2>Du tust alles richtig.<br>Und trotzdem dreht sich das Rad weiter.</h2>
+      <div class="gold-line"></div>
+      <p>
+        Du hast Bücher gelesen. Ergotherapie probiert. Mit Lehrern gesprochen.
+        Vielleicht sogar eine Diagnose bekommen — ADHS, Hochsensibilität, LRS.
+      </p>
+      <p>
+        Und trotzdem: Zu Hause ist die Luft oft dünn. Dein Kind explodiert, zieht sich zurück
+        oder kämpft gegen alles. Du weißt nicht mehr, ob du strenger sein sollst oder sanfter.
+        Ob du falsch reagierst. Ob es an dir liegt.
+      </p>
+      <p><strong>Was, wenn das Problem gar nicht dein Kind ist — sondern das System darum herum?</strong></p>
+    </div>
+
+    <div class="container" style="margin-top: 2.5rem;">
+      <ul class="recognition-list">
+        <li>Dein Kind ist eigentlich hochsensibel, kreativ, tief fühlend — aber Schule und Alltag machen es klein</li>
+        <li>Du liebst dein Kind bedingungslos, aber manchmal bist du so erschöpft, dass du es selbst vergisst</li>
+        <li>Ihr habt Therapien ausprobiert, aber nichts hat sich wirklich nachhaltig verändert</li>
+        <li>Du suchst keinen Therapeuten — du suchst einen Raum, wo eure Familie ganz sein darf</li>
+      </ul>
+      <div class="text-center">
+        <div class="callout">Dann bist du hier richtig.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ PROGRAMM ============ -->
+  <section class="section-dark">
+    <div class="container">
+      <div class="program-intro">
+        <span class="section-tag">Das Programm</span>
+        <h2 style="color: var(--cream);">THE SHIFT® FAMILY CIRCLE</h2>
+        <div class="gold-line"></div>
+        <p style="font-size: 1rem; color: rgba(250,246,239,0.8);">
+          Der Family Circle ist kein Elternkurs. Keine Therapie. Keine weitere To-Do-Liste.
+          Es ist ein <strong>3-monatiges Transformationsprogramm</strong>, in dem Eltern UND Kind gemeinsam erleben,
+          wer sie wirklich sind — und wie sie wieder zueinander finden.
+          Pferde begleiten den Prozess als stille, ehrliche Resonanzwesen.
+          <em>Sie spiegeln, was Worte nicht können.</em>
+        </p>
+        <div class="program-meta">
+          <div class="program-meta-item">
+            <span class="label">Ort</span>
+            <span class="value">Hof, Südoststeiermark</span>
+          </div>
+          <div class="program-meta-item">
+            <span class="label">Dauer</span>
+            <span class="value">12 Wochen / 3 Module</span>
+          </div>
+          <div class="program-meta-item">
+            <span class="label">Gruppen&shy;größe</span>
+            <span class="value">max. 4 Familien</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modules-grid">
+        <!-- Modul 1 -->
+        <div class="module-card">
+          <div class="module-number">Modul 01 · Wochen 1–4</div>
+          <div class="module-title">SEHEN</div>
+          <div class="module-sub">Das Ankommen</div>
+          <p>Die Pferde zeigen, was im Familiensystem gerade wirklich passiert — ohne Schuldzuweisungen,
+            ohne Diagnosen. Jedes Familienmitglied erlebt sich durch die Augen der anderen.</p>
+          <ul class="module-includes">
+            <li>Auftakt-Retreat (1 Tag vor Ort mit Pferden)</li>
+            <li>1x Online-Eltern-Circle (60 min, Gruppe)</li>
+            <li>4-4-Atemübung als Familienritual</li>
+          </ul>
+          <div class="module-goal">Ziel: Ihr seht euch — vielleicht zum ersten Mal wirklich.</div>
+        </div>
+
+        <!-- Modul 2 -->
+        <div class="module-card">
+          <div class="module-number">Modul 02 · Wochen 5–8</div>
+          <div class="module-title">FÜHLEN</div>
+          <div class="module-sub">Die Vertiefung</div>
+          <p>Kind und Eltern arbeiten zunächst getrennt, dann zusammen. Das Kind erlebt durch Körperarbeit
+            mit dem Pferd, wer es wirklich ist — jenseits von Etiketten.</p>
+          <ul class="module-includes">
+            <li>Halbtagsworkshop vor Ort (Kind + Eltern)</li>
+            <li>Paralleler Eltern-Circle zur Kraftaufladung</li>
+            <li>2x Online-Einzelgespräch (je 45 min)</li>
+          </ul>
+          <div class="module-goal">Ziel: Ihr fühlt euch — auch wenn es unbequem ist.</div>
+        </div>
+
+        <!-- Modul 3 -->
+        <div class="module-card">
+          <div class="module-number">Modul 03 · Wochen 9–12</div>
+          <div class="module-title">WANDELN</div>
+          <div class="module-sub">Die Integration</div>
+          <p>Die Familie definiert gemeinsam mit den Pferden, wie sie miteinander sein möchte.
+            Ihr entwickelt euer persönliches Familienritual und tragt es in den Alltag.</p>
+          <ul class="module-includes">
+            <li>Abschluss-Retreat (1 Tag vor Ort)</li>
+            <li>Persönliches Familienritual entwickeln</li>
+            <li>Aufnahme in die SA® Community</li>
+          </ul>
+          <div class="module-goal">Ziel: Ihr wandelt euch — nachhaltig und gemeinsam.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ FÜR WEN ============ -->
+  <section class="section-forwho">
+    <div class="container text-center">
+      <span class="section-tag">Passt das zu euch?</span>
+      <h2>Das ist für euch, wenn...</h2>
+      <div class="gold-line"></div>
+
+      <div class="two-col mt-4">
+        <div class="check-box">
+          <h3>Ja, das bin ich</h3>
+          <ul class="check-list yes">
+            <li>Euer Kind ist 5–16 Jahre mit ADHS, Hochsensibilität, Legasthenie oder LRS</li>
+            <li>Ihr habt bereits Therapien probiert — ohne nachhaltige Wirkung</li>
+            <li>Du bist bereit, auch dich selbst anzuschauen — nicht nur das Kind</li>
+            <li>Du suchst Tiefe, Natur und echte Begegnung — keinen klinischen Rahmen</li>
+            <li>Ihr seid offen für einen spirituell-ganzheitlichen Ansatz</li>
+          </ul>
+        </div>
+        <div class="check-box">
+          <h3>Das passt (noch) nicht</h3>
+          <ul class="check-list no">
+            <li>Ihr habt akute Krisen oder psychiatrischen Behandlungsbedarf</li>
+            <li>Ihr sucht eine gesetzlich anerkannte Therapie mit Krankenkasse</li>
+          </ul>
+          <p style="font-size: 0.85rem; color: var(--gray-mid); margin-top: 1.5rem; font-style: italic;">
+            Bei akutem Bedarf vermitteln wir euch gerne an geeignete Fachkräfte weiter.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ PFERDE ============ -->
+  <section class="section-horses">
+    <div class="container">
+      <div class="horses-grid">
+        <div class="horses-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1508000745573-7b2cb67d46f4?w=900&q=80"
+            alt="Kind mit Pferd auf dem Hof des Symphony Awareness Institut"
+            loading="lazy"
+          />
+        </div>
+        <div class="horses-text">
+          <span class="section-tag">Warum Pferde?</span>
+          <h2>"Pferde? Was haben Pferde mit meiner Familie zu tun?"</h2>
+          <p>Mehr, als du denkst.</p>
+          <p>
+            Pferde sind Fluchttiere. Sie überleben, indem sie Spannungen, Kongruenz und Sicherheit
+            im System sofort wahrnehmen — ohne Filter, ohne soziale Masken.
+            Was wir mit Worten verbergen, spüren sie.
+          </p>
+          <div class="quote-block">
+            <strong>"Sie lügen nicht."</strong>
+          </div>
+          <p>
+            Du musst keine Reiterfahrung haben. Du begegnest den Pferden auf dem Boden,
+            im eigenen Tempo, in deiner eigenen Wahrheit.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ ÜBER DAS INSTITUT ============ -->
+  <section class="section-about">
+    <div class="container--narrow text-center">
+      <span class="section-tag">Über uns</span>
+      <h2>Das Symphony Awareness® Institut</h2>
+      <div class="gold-line"></div>
+      <p>
+        Ein gemeinnütziger Verein in der Südoststeiermark. Wir verbinden systemische Aufstellungsarbeit,
+        pferdegestützte Intervention und spirituelle Tiefe zu einem kohärenten Begleitmodell —
+        für Menschen, die mehr suchen als eine Diagnose.
+      </p>
+      <p>
+        Als <strong>gemeinnütziger Verein</strong> folgen wir keiner Renditelogik. Unser Ziel ist Wirkung.
+        Deshalb gibt es Patenschaftspreise für Familien, die sich den Vollpreis nicht leisten können.
+      </p>
+    </div>
+
+    <div class="container">
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <div class="icon">♾</div>
+          <div class="label">Gemeinnützig</div>
+          <p>Non-Profit Verein — keine Renditelogik</p>
+        </div>
+        <div class="trust-badge">
+          <div class="icon">◈</div>
+          <div class="label">Systemisch</div>
+          <p>SA® Modell — entwickelt aus Praxis</p>
+        </div>
+        <div class="trust-badge">
+          <div class="icon">⬡</div>
+          <div class="label">Pferdegestützt</div>
+          <p>Pferde als stille Co-Moderatoren</p>
+        </div>
+        <div class="trust-badge">
+          <div class="icon">❋</div>
+          <div class="label">Patenschaft</div>
+          <p>Soziale Inklusion durch Spendenstruktur</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section-testimonials">
+    <div class="container text-center">
+      <span class="section-tag">Stimmen</span>
+      <h2>Was Familien sagen, die dabei waren</h2>
+      <div class="gold-line"></div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">Platzhalter — Testimonial nach Pilotphase</p>
+          <div class="testimonial-author">
+            Vorname
+            <span>Mutter von Kind (Alter), Bundesland</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">Platzhalter — Testimonial nach Pilotphase</p>
+          <div class="testimonial-author">
+            Vorname
+            <span>Elternteil</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">Platzhalter — Testimonial nach Pilotphase</p>
+          <div class="testimonial-author">
+            Vorname, Kind
+            <span>Alter Jahre</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pilot-notice">
+        Der Family Circle startet mit einem Pilotprogramm.<br>
+        <strong>Sei dabei — und gestalte mit, was Familien in Zukunft trägt.</strong>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ PREIS ============ -->
+  <section class="section-preis">
+    <div class="container text-center">
+      <span class="section-tag">Investition</span>
+      <h2 style="color: var(--cream);">Investition in euer Familiensystem</h2>
+      <div class="gold-line"></div>
+
+      <div class="price-grid">
+        <!-- Patenschaftspreis -->
+        <div class="price-card">
+          <div class="price-label">Patenschaftspreis</div>
+          <div class="price-amount">€ 490</div>
+          <div class="price-period">für 3 Monate · ganzes Familienprogramm</div>
+          <ul class="price-includes">
+            <li>Alle 3 Module inklusive</li>
+            <li>2 Retreats vor Ort</li>
+            <li>Online-Circles & Einzelgespräche</li>
+            <li>Community-Aufnahme</li>
+          </ul>
+          <p class="price-note">Finanziert durch Spenden/Patenschaften. Auf Anfrage.</p>
+          <a href="#vorgespräch" class="btn btn-outline" style="width: 100%; text-align: center; margin-top: 1rem;">Anfragen</a>
+        </div>
+
+        <!-- Vollpreis -->
+        <div class="price-card featured">
+          <div class="badge">Empfohlen</div>
+          <div class="price-label">Vollpreis</div>
+          <div class="price-amount">€ 1.490</div>
+          <div class="price-period">für 3 Monate · ganzes Familienprogramm</div>
+          <ul class="price-includes">
+            <li>Alle 3 Module inklusive</li>
+            <li>2 Retreats vor Ort (je 1 Tag)</li>
+            <li>Online-Circles & Einzelgespräche</li>
+            <li>Community-Aufnahme & Netzwerk</li>
+            <li>Ratenzahlung: 3 × € 497 möglich</li>
+          </ul>
+          <p class="price-note">&nbsp;</p>
+          <a href="#vorgespräch" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">Jetzt Platz sichern</a>
+        </div>
+      </div>
+
+      <div class="compare-note">
+        Zum Vergleich: Ein klassisches Coaching für <em>nur das Kind</em> kostet € 110/Einheit —
+        nach 3 Monaten sind das <strong>€ 1.300–1.650</strong> — nur für das Kind.
+        Der Family Circle begleitet die <strong>ganze Familie</strong> für einen ähnlichen Preis.
+      </div>
+
+      <div class="patronage-block">
+        <div class="price-label">Eine Familie unterstützen</div>
+        <p>Mit einer Spende von € 1.000 ermöglichst du einer Familie mit geringem Einkommen
+          die vollständige Teilnahme am Family Circle.</p>
+        <a href="#vorgespräch" class="btn btn-outline">Patenschaft schenken</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ FAQ ============ -->
+  <section class="section-faq">
+    <div class="container text-center">
+      <span class="section-tag">Häufige Fragen</span>
+      <h2>Alles, was ihr wissen möchtet</h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Muss mein Kind Pferde mögen?</button>
+        <div class="faq-answer">Nein. Kein Vorwissen, keine Reiterfahrung. Wir bewegen uns auf dem Boden, im eigenen Tempo. Pferde wählen selbst, ob sie sich nähern — und das ist Teil des Prozesses.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Ab welchem Alter ist mein Kind geeignet?</button>
+        <div class="faq-answer">Das Programm ist für Kinder zwischen 5 und 16 Jahren konzipiert. Bei jüngeren Kindern sprechen wir im Vorgespräch individuell ab.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Können beide Elternteile teilnehmen?</button>
+        <div class="faq-answer">Ja — und es ist ausdrücklich erwünscht. Das Familiensystem schließt alle ein, die im Alltag eng miteinander verbunden sind.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Was, wenn mein Kind nicht mitmachen will?</button>
+        <div class="faq-answer">Das ist normal und kein Problem. Pferde und der Rahmen laden ein — sie zwingen nicht. Im Vorgespräch klären wir gemeinsam, wie wir damit umgehen.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Gibt es eine Krankenkassenanerkennung?</button>
+        <div class="faq-answer">Nein. Das Symphony Awareness® Institut arbeitet bewusst außerhalb des klinisch-therapeutischen Rahmens. Der Family Circle ist kein Therapieangebot im Sinne des Psychotherapiegesetzes.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Wie bewerbe ich mich?</button>
+        <div class="faq-answer">Du buchst zuerst ein kostenfreies Vorgespräch (30 min). Wir schauen gemeinsam, ob der Family Circle zu eurer Familie passt. Erst dann erfolgt die Anmeldung — kein Verkaufsgespräch, kein Druck.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ CTA ABSCHLUSS ============ -->
+  <section class="section-cta" id="vorgespräch">
+    <div class="container">
+      <span class="cta-script">Ihr seid bereit.</span>
+      <h2>Wir auch.</h2>
+      <p>
+        Das kostenfreie Vorgespräch ist unverbindlich —
+        und der erste Schritt zurück zu euch selbst.
+      </p>
+      <a href="https://symphonyawareness.institute" class="btn btn-primary" style="font-size: 1rem; padding: 1.1rem 3rem;">
+        Jetzt kostenfreies Vorgespräch buchen
+      </a>
+      <p class="cta-note">Kein Verkaufsgespräch. Kein Druck. Nur ein ehrliches Gespräch darüber, was ihr braucht.</p>
+    </div>
+  </section>
+
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">Symphony Awareness</div>
+      <div class="footer-tagline">Institut · Gemeinnütziger Verein · Südoststeiermark</div>
+      <div class="footer-links">
+        <a href="https://ausbildung.symphonyawareness.institute">Facilitator Ausbildung</a>
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">Kontakt</a>
+      </div>
+      <p class="footer-copy">© 2026 Symphony Awareness® Institut · Alle Rechte vorbehalten</p>
+    </div>
+  </footer>
+
+
+  <!-- ============ JAVASCRIPT ============ -->
+  <script>
+    // FAQ Toggle
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const isOpen = btn.classList.contains('open');
+
+      // close all
+      document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+
+      // open clicked (if was closed)
+      if (!isOpen) {
+        btn.classList.add('open');
+        answer.classList.add('open');
+      }
+    }
+
+    // Sticky nav shadow on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      nav.style.boxShadow = window.scrollY > 20
+        ? '0 4px 24px rgba(0,0,0,0.4)'
+        : 'none';
+    });
+  </script>
+
+</body>
+</html>
