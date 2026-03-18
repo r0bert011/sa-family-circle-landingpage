@@ -11,7 +11,7 @@
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     /* =============================================
@@ -21,23 +21,24 @@
       --gold:         #c9a84c;
       --gold-light:   #dbbe78;
       --gold-pale:    #f5edd8;
-      --gold-border:  rgba(201,168,76,0.25);
-      --dark:         #1a1208;
-      --dark-mid:     #2a1f0e;
-      --text:         #2d2820;
-      --text-soft:    #5a5248;
-      --text-muted:   #8a8278;
+      --gold-border:  rgba(201,168,76,0.22);
+      --dark:         #1a1a19;
+      --dark-mid:     #2a2825;
+      --text:         #34322d;
+      --text-soft:    #6b6860;
+      --text-muted:   #858481;
       --white:        #ffffff;
-      --off-white:    #fdfaf5;
+      --off-white:    #f8f8f7;
       --cream:        #faf6ef;
-      --cream-mid:    #f3ece0;
-      --border:       rgba(201,168,76,0.18);
-      --shadow-sm:    0 2px 12px rgba(42,31,14,0.07);
-      --shadow-md:    0 6px 28px rgba(42,31,14,0.10);
-      --shadow-lg:    0 16px 48px rgba(42,31,14,0.13);
+      --cream-mid:    #ede9e3;
+      --border:       rgba(201,168,76,0.15);
+      --shadow-sm:    0 2px 12px rgba(26,26,25,0.07);
+      --shadow-md:    0 6px 28px rgba(26,26,25,0.10);
+      --shadow-lg:    0 16px 48px rgba(26,26,25,0.13);
       --font-script:  'Great Vibes', cursive;
+      --font-serif:   'Cormorant Garamond', Georgia, serif;
       --font-sans:    'Inter', sans-serif;
-      --radius:       6px;
+      --radius:       8px;
     }
 
     /* =============================================
@@ -59,16 +60,24 @@
     a   { color: var(--gold); text-decoration: none; transition: color 0.2s; }
     a:hover { color: var(--gold-light); }
 
-    h1, h2, h3, h4 {
+    h1, h2 {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    h3, h4 {
       font-family: var(--font-sans);
-      font-weight: 700;
-      line-height: 1.2;
+      font-weight: 600;
+      line-height: 1.25;
       color: var(--text);
     }
 
-    h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
-    h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); }
-    h3 { font-size: 1.15rem; font-weight: 600; }
+    h1 { font-size: clamp(2.4rem, 5.5vw, 4rem); }
+    h2 { font-size: clamp(1.9rem, 3.5vw, 2.9rem); }
+    h3 { font-size: 1.1rem; }
 
     p { margin-bottom: 1rem; color: var(--text-soft); font-size: 0.97rem; }
     p:last-child { margin-bottom: 0; }
@@ -88,11 +97,17 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(253, 250, 245, 0.95);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
+      background: rgba(26, 26, 25, 0.25);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
       padding: 0.9rem 0;
-      transition: box-shadow 0.3s;
+      transition: background 0.4s, box-shadow 0.4s;
+    }
+
+    nav.scrolled {
+      background: rgba(26, 26, 25, 0.96);
+      box-shadow: 0 1px 32px rgba(0,0,0,0.28);
     }
 
     .nav-inner {
@@ -106,10 +121,10 @@
 
     .nav-logo-text {
       font-size: 0.72rem;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: rgba(255,255,255,0.45);
     }
 
     .nav-logo-script {
@@ -138,40 +153,68 @@
     }
 
     /* =============================================
-       HERO — Light with image accent
+       HERO — Dark, cinematic, full-bleed
        ============================================= */
     .hero {
       min-height: 100vh;
-      background: var(--off-white);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      position: relative;
+      display: flex;
       align-items: center;
-      padding-top: 5rem;
       overflow: hidden;
+      background: #0d0d0c;
     }
 
-    @media (max-width: 860px) {
-      .hero { grid-template-columns: 1fr; padding-top: 7rem; }
-      .hero-image { display: none; }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg picture,
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right,  rgba(6,4,2,0.88) 0%, rgba(6,4,2,0.65) 50%, rgba(6,4,2,0.25) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.5) 100%);
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+      padding-top: 7rem;
+      padding-bottom: 5rem;
     }
 
     .hero-text {
-      padding: 4rem 3rem 4rem 0;
+      max-width: 600px;
     }
 
-    @media (max-width: 860px) { .hero-text { padding: 2rem 0; text-align: center; } }
+    @media (max-width: 860px) {
+      .hero { min-height: 100svh; }
+      .hero-text { max-width: 100%; }
+    }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--gold);
-      background: var(--gold-pale);
-      border: 1px solid var(--gold-border);
+      color: var(--gold-light);
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
       padding: 0.4rem 1rem;
       border-radius: 100px;
       margin-bottom: 2rem;
@@ -179,69 +222,78 @@
 
     .hero-script {
       font-family: var(--font-script);
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-size: clamp(2rem, 4vw, 3.2rem);
       color: var(--gold);
       display: block;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
       font-weight: 400;
+      line-height: 1.2;
     }
 
     .hero h1 {
-      margin-bottom: 1.5rem;
-      color: var(--text);
+      margin-bottom: 1.75rem;
+      color: #fff;
+      font-weight: 300;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.4);
     }
 
     .hero-sub {
       font-size: 1.05rem;
-      color: var(--text-soft);
-      line-height: 1.7;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
       margin-bottom: 2.5rem;
-      max-width: 480px;
+      max-width: 500px;
+      font-weight: 300;
     }
-
-    @media (max-width: 860px) { .hero-sub { margin-left: auto; margin-right: auto; } }
 
     .hero-proof {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.75rem;
       flex-wrap: wrap;
-      margin-top: 1.25rem;
+      margin-top: 1.5rem;
     }
-
-    @media (max-width: 860px) { .hero-proof { justify-content: center; } }
 
     .hero-proof-item {
       font-size: 0.78rem;
-      color: var(--text-muted);
+      color: rgba(255,255,255,0.4);
       display: flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.4rem;
+      letter-spacing: 0.04em;
     }
 
     .hero-proof-item::before {
       content: '✦';
       color: var(--gold);
-      font-size: 0.6rem;
+      font-size: 0.55rem;
     }
 
-    .hero-image {
-      position: relative;
-      height: 100vh;
+    /* Scenic image banner */
+    .image-banner {
+      width: 100%;
+      height: clamp(220px, 32vw, 460px);
       overflow: hidden;
+      position: relative;
     }
 
-    .hero-image img {
+    .image-banner picture,
+    .image-banner img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: center 40%;
+      display: block;
     }
 
-    .hero-image::after {
+    .image-banner::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, var(--off-white) 0%, transparent 15%);
+      background: linear-gradient(to bottom,
+        rgba(255,255,255,0.18) 0%,
+        transparent 25%,
+        transparent 75%,
+        rgba(255,255,255,0.22) 100%);
     }
 
     /* =============================================
@@ -301,19 +353,19 @@
        ============================================= */
     .section-tag {
       display: inline-block;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
+      opacity: 0.9;
     }
 
     .gold-line {
-      width: 40px;
-      height: 2px;
-      background: var(--gold);
-      margin: 1.1rem 0 1.75rem;
+      width: 0;
+      height: 0;
+      margin: 0 0 2rem;
     }
 
     .gold-line.center { margin-left: auto; margin-right: auto; }
@@ -370,9 +422,12 @@
 
     .callout-box p {
       margin: 0;
-      font-size: 1rem;
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 400;
       color: var(--text);
       font-style: italic;
+      line-height: 1.5;
     }
 
     /* =============================================
@@ -474,10 +529,12 @@
     }
 
     .module-title {
-      font-size: 1.4rem;
-      font-weight: 700;
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      font-weight: 400;
       color: var(--text);
       margin-bottom: 0.2rem;
+      letter-spacing: 0.04em;
     }
 
     .module-weeks {
@@ -616,16 +673,18 @@
       background: var(--gold-pale);
       border-left: 3px solid var(--gold);
       border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 1.1rem 1.5rem;
+      padding: 1.2rem 1.75rem;
       margin: 1.75rem 0;
     }
 
     .quote-pull p {
       margin: 0;
-      font-size: 1.05rem;
-      font-weight: 600;
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 400;
       color: var(--text);
       font-style: italic;
+      line-height: 1.4;
     }
 
     /* =============================================
@@ -708,10 +767,11 @@
     }
 
     .testimonial-quote {
-      font-size: 0.92rem;
+      font-family: var(--font-serif);
+      font-size: 1.08rem;
       color: var(--text-soft);
       font-style: italic;
-      line-height: 1.75;
+      line-height: 1.65;
       flex: 1;
       margin-bottom: 1.5rem;
     }
@@ -950,7 +1010,17 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.09) 0%, transparent 68%);
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.12) 0%, transparent 65%),
+        radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 50%);
+    }
+
+    .section-cta::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,168,76,0.3), transparent);
     }
 
     .section-cta > .container { position: relative; z-index: 1; }
@@ -1056,6 +1126,18 @@
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-bg">
+      <picture>
+        <source srcset="01_hero-hof-pferde.webp" type="image/webp" />
+        <img
+          src="01_hero-hof-pferde.png"
+          alt="Pferde auf dem Hof des Symphony Awareness Instituts in der Südoststeiermark"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+    </div>
     <div class="container">
       <div class="hero-text">
         <div class="hero-badge">Pilotprogramm 2026 · Südoststeiermark</div>
@@ -1063,22 +1145,15 @@
         <h1>kann das Kind endlich sein.</h1>
         <p class="hero-sub">
           Das 3-monatige Begleitprogramm für Familien mit hochsensiblen, neurodiversen
-          oder ADHS-Kindern — mit Pferden, Systemaufstellung und echter Tiefe.
+          oder ADHS-Kindern… mit Pferden, Systemaufstellung und echter Tiefe.
         </p>
-        <a href="#vorgespräch" class="btn btn-primary">Jetzt Platz sichern — kostenfrei anfragen</a>
+        <a href="#vorgespräch" class="btn btn-primary">Jetzt Platz sichern… kostenfrei anfragen</a>
         <div class="hero-proof">
           <span class="hero-proof-item">Nur 4 Familien pro Circle</span>
           <span class="hero-proof-item">12 Wochen Begleitung</span>
           <span class="hero-proof-item">Gemeinnützig</span>
         </div>
       </div>
-    </div>
-    <div class="hero-image">
-      <img
-        src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=1200&q=80"
-        alt="Familie mit Pferd in der Natur"
-        loading="eager"
-      />
     </div>
   </section>
 
@@ -1093,7 +1168,7 @@
           <div class="gold-line"></div>
           <p>
             Du hast Bücher gelesen. Ergotherapie probiert. Mit Lehrern gesprochen.
-            Vielleicht sogar ein Fachgutachten — ADHS, Hochsensibilität, LRS.
+            Vielleicht sogar ein Fachgutachten… ADHS, Hochsensibilität, LRS.
           </p>
           <p>
             Und trotzdem: Zu Hause ist die Luft oft dünn. Dein Kind explodiert,
@@ -1102,20 +1177,20 @@
             Ob es an dir liegt.
           </p>
           <p>
-            <strong>Was, wenn das Problem gar nicht dein Kind ist —
+            <strong>Was, wenn das Problem gar nicht dein Kind ist…
             sondern das System darum herum?</strong>
           </p>
           <div class="callout-box">
-            <p>Das Symphony Awareness® Institut sieht die Familie als lebendiges System — nicht als Sammlung von Herausforderungen.</p>
+            <p>Das Symphony Awareness® Institut sieht die Familie als lebendiges System… nicht als Sammlung von Herausforderungen.</p>
           </div>
         </div>
         <div>
           <p style="font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;">Das klingt bekannt?</p>
           <ul class="recognition-list">
-            <li>Dein Kind ist eigentlich hochsensibel, kreativ, tief fühlend — doch Schule und Alltag machen es klein</li>
+            <li>Dein Kind ist eigentlich hochsensibel, kreativ, tief fühlend… doch Schule und Alltag machen es klein</li>
             <li>Du liebst dein Kind bedingungslos, und manchmal bist du so erschöpft, dass du es selbst vergisst</li>
             <li>Ihr habt Therapien ausprobiert, und doch hat sich nichts wirklich nachhaltig verändert</li>
-            <li>Du suchst keinen Therapeuten — du suchst einen Raum, wo eure Familie ganz sein darf</li>
+            <li>Du suchst keinen Therapeuten… du suchst einen Raum, wo eure Familie ganz sein darf</li>
           </ul>
           <div class="callout-box" style="margin-top: 1.5rem;">
             <p><em>Dann bist du hier richtig.</em></p>
@@ -1136,7 +1211,7 @@
         <p>
           Kein Elternkurs. Keine Therapie. Keine weitere To-Do-Liste.<br>
           Ein <strong>3-monatiges Transformationsprogramm</strong>, in dem Eltern UND Kind gemeinsam
-          erleben, wer sie wirklich sind — und wie sie wieder zueinander finden.
+          erleben, wer sie wirklich sind… und wie sie wieder zueinander finden.
           Pferde spiegeln, was Worte nicht können.
         </p>
         <div class="program-meta-row">
@@ -1160,26 +1235,26 @@
           <div class="module-number">Modul 01</div>
           <div class="module-title">SEHEN</div>
           <div class="module-weeks">Wochen 1–4 · Das Ankommen</div>
-          <p>Die Pferde zeigen, was im Familiensystem gerade wirklich passiert — ohne Schuldzuweisungen, ohne Etiketten. Jedes Familienmitglied erlebt sich durch die Augen der anderen.</p>
+          <p>Die Pferde zeigen, was im Familiensystem gerade wirklich passiert… ohne Schuldzuweisungen, ohne Etiketten. Jedes Familienmitglied erlebt sich durch die Augen der anderen.</p>
           <ul class="module-includes">
             <li>Auftakt-Retreat (1 Tag vor Ort)</li>
             <li>1x Online-Eltern-Circle (60 min)</li>
             <li>4-4-Atemübung als Familienritual</li>
           </ul>
-          <div class="module-goal">Ihr seht euch — vielleicht zum ersten Mal wirklich.</div>
+          <div class="module-goal">Ihr seht euch… vielleicht zum ersten Mal wirklich.</div>
         </div>
 
         <div class="module-card">
           <div class="module-number">Modul 02</div>
           <div class="module-title">FÜHLEN</div>
           <div class="module-weeks">Wochen 5–8 · Die Vertiefung</div>
-          <p>Kind und Eltern arbeiten zunächst getrennt, dann zusammen. Das Kind erlebt durch Körperarbeit mit dem Pferd, wer es wirklich ist — jenseits von Etiketten.</p>
+          <p>Kind und Eltern arbeiten zunächst getrennt, dann zusammen. Das Kind erlebt durch Körperarbeit mit dem Pferd, wer es wirklich ist… jenseits von Etiketten.</p>
           <ul class="module-includes">
             <li>Halbtagsworkshop vor Ort (Kind + Eltern)</li>
             <li>Paralleler Eltern-Circle</li>
             <li>2x Online-Einzelgespräch (je 45 min)</li>
           </ul>
-          <div class="module-goal">Ihr fühlt euch — auch wenn es unbequem ist.</div>
+          <div class="module-goal">Ihr fühlt euch… auch wenn es unbequem ist.</div>
         </div>
 
         <div class="module-card">
@@ -1192,7 +1267,7 @@
             <li>Persönliches Familienritual</li>
             <li>Aufnahme in die SA® Community</li>
           </ul>
-          <div class="module-goal">Ihr wandelt euch — nachhaltig und gemeinsam.</div>
+          <div class="module-goal">Ihr wandelt euch… nachhaltig und gemeinsam.</div>
         </div>
       </div>
     </div>
@@ -1211,16 +1286,16 @@
           <div class="check-card-title">Ja, das trifft zu</div>
           <ul class="check-list yes">
             <li>Euer Kind ist 5–16 Jahre mit ADHS, Hochsensibilität, Legasthenie oder LRS</li>
-            <li>Ihr habt bereits verschiedene Wege versucht — ohne nachhaltige Wirkung</li>
-            <li>Du bist bereit, auch dich selbst anzuschauen — nicht nur das Kind</li>
-            <li>Du suchst Tiefe, Natur und echte Begegnung — keinen klinischen Rahmen</li>
+            <li>Ihr habt bereits verschiedene Wege versucht… ohne nachhaltige Wirkung</li>
+            <li>Du bist bereit, auch dich selbst anzuschauen… nicht nur das Kind</li>
+            <li>Du suchst Tiefe, Natur und echte Begegnung… keinen klinischen Rahmen</li>
             <li>Ihr seid offen für einen spirituell-ganzheitlichen Ansatz</li>
           </ul>
         </div>
         <div class="check-card no">
           <div class="check-card-title">Das passt (noch) nicht</div>
           <ul class="check-list no">
-            <li>Ihr habt akute Krisen oder psychiatrischen Behandlungsbedarf — hier vermitteln wir euch gerne weiter</li>
+            <li>Ihr habt akute Krisen oder psychiatrischen Behandlungsbedarf… hier vermitteln wir euch gerne weiter</li>
             <li>Ihr sucht eine gesetzlich anerkannte Therapie mit Krankenkassenabrechnung</li>
           </ul>
         </div>
@@ -1229,16 +1304,34 @@
   </section>
 
 
+  <!-- BILD-BANNER -->
+  <div class="image-banner">
+    <picture>
+      <source srcset="03_drei-pferde-wiese.webp" type="image/webp" />
+      <img
+        src="03_drei-pferde-wiese.png"
+        alt="Drei Pferde auf der Wiese des Instituts in der Südoststeiermark"
+        loading="lazy"
+        decoding="async"
+      />
+    </picture>
+  </div>
+
+
   <!-- PFERDE -->
   <section class="section-horses">
     <div class="container">
       <div class="horses-layout">
         <div class="horses-image-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1508000745573-7b2cb67d46f4?w=900&q=80"
-            alt="Kind mit Pferd auf dem Hof"
-            loading="lazy"
-          />
+          <picture>
+            <source srcset="02_haende-auf-pferd.webp" type="image/webp" />
+            <img
+              src="02_haende-auf-pferd.png"
+              alt="Hände berühren behutsam ein Pferd — Begegnung auf Augenhöhe"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
         <div class="horses-text">
           <span class="section-tag">Warum Pferde?</span>
@@ -1247,7 +1340,7 @@
           <p>Mehr, als du denkst.</p>
           <p>
             Pferde sind Fluchttiere. Sie überleben, indem sie Spannungen, Kongruenz und
-            Sicherheit im System sofort wahrnehmen — ohne Filter, ohne soziale Masken.
+            Sicherheit im System sofort wahrnehmen… ohne Filter, ohne soziale Masken.
             Was wir mit Worten verbergen, spüren sie.
           </p>
           <div class="quote-pull">
@@ -1271,12 +1364,12 @@
       <div class="gold-line center"></div>
       <p>
         Ein gemeinnütziger Verein in der Südoststeiermark. Wir verbinden systemische Aufstellungsarbeit,
-        pferdegestützte Intervention und spirituelle Tiefe zu einem kohärenten Begleitmodell —
+        pferdegestützte Intervention und spirituelle Tiefe zu einem kohärenten Begleitmodell…
         für Menschen, die mehr suchen als eine Einschätzung von außen.
       </p>
       <p>
         Als <strong>gemeinnütziger Verein</strong> folgen wir keiner Renditelogik.
-        Unser Ziel ist Wirkung — deshalb gibt es Patenschaftspreise für Familien,
+        Unser Ziel ist Wirkung… deshalb gibt es Patenschaftspreise für Familien,
         die sich den Vollpreis nicht leisten können.
       </p>
     </div>
@@ -1285,7 +1378,7 @@
         <div class="trust-card">
           <div class="trust-icon">♾</div>
           <div class="trust-title">Gemeinnützig</div>
-          <p>Non-Profit Verein — keine Renditelogik</p>
+          <p>Non-Profit Verein… keine Renditelogik</p>
         </div>
         <div class="trust-card">
           <div class="trust-icon">◈</div>
@@ -1317,24 +1410,24 @@
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">Platzhalter — Testimonial nach Pilotphase einfügen</p>
+          <p class="testimonial-quote">Platzhalter… Testimonial nach Pilotphase einfügen</p>
           <div class="testimonial-author">Vorname <span>Mutter von Kind (Alter), Bundesland</span></div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">Platzhalter — Testimonial nach Pilotphase einfügen</p>
+          <p class="testimonial-quote">Platzhalter… Testimonial nach Pilotphase einfügen</p>
           <div class="testimonial-author">Vorname <span>Elternteil</span></div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-quote">Platzhalter — Testimonial nach Pilotphase einfügen</p>
+          <p class="testimonial-quote">Platzhalter… Testimonial nach Pilotphase einfügen</p>
           <div class="testimonial-author">Vorname, Kind <span>Alter Jahre</span></div>
         </div>
       </div>
 
       <div class="pilot-notice">
         Der Family Circle startet mit einem Pilotprogramm.<br>
-        <strong>Sei dabei — und gestalte mit, was Familien in Zukunft trägt.</strong>
+        <strong>Sei dabei… und gestalte mit, was Familien in Zukunft trägt.</strong>
       </div>
     </div>
   </section>
@@ -1380,8 +1473,8 @@
       </div>
 
       <div class="compare-note">
-        Zum Vergleich: Klassisches Coaching für <em>nur das Kind</em> kostet € 110/Einheit —
-        nach 3 Monaten sind das <strong>€ 1.300–1.650</strong> — nur für das Kind.
+        Zum Vergleich: Klassisches Coaching für <em>nur das Kind</em> kostet € 110/Einheit…
+        nach 3 Monaten sind das <strong>€ 1.300–1.650</strong>… nur für das Kind.
         Der Family Circle begleitet die <strong>ganze Familie</strong> für einen ähnlichen Preis.
       </div>
 
@@ -1404,7 +1497,7 @@
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">Muss mein Kind Pferde mögen?</button>
-        <div class="faq-answer">Nein. Kein Vorwissen, keine Reiterfahrung nötig. Wir bewegen uns auf dem Boden, im eigenen Tempo. Pferde wählen selbst, ob sie sich nähern — und das ist Teil des Prozesses.</div>
+        <div class="faq-answer">Nein. Kein Vorwissen, keine Reiterfahrung nötig. Wir bewegen uns auf dem Boden, im eigenen Tempo. Pferde wählen selbst, ob sie sich nähern… und das ist Teil des Prozesses.</div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">Ab welchem Alter ist mein Kind geeignet?</button>
@@ -1412,11 +1505,11 @@
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">Können beide Elternteile teilnehmen?</button>
-        <div class="faq-answer">Ja — und es ist ausdrücklich erwünscht. Das Familiensystem schließt alle ein, die im Alltag eng miteinander verbunden sind.</div>
+        <div class="faq-answer">Ja… und es ist ausdrücklich erwünscht. Das Familiensystem schließt alle ein, die im Alltag eng miteinander verbunden sind.</div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">Was, wenn mein Kind nicht mitmachen will?</button>
-        <div class="faq-answer">Das ist normal und kein Problem. Pferde und der Rahmen laden ein — sie zwingen nicht. Im Vorgespräch klären wir gemeinsam, wie wir damit umgehen.</div>
+        <div class="faq-answer">Das ist normal und kein Problem. Pferde und der Rahmen laden ein… sie zwingen nicht. Im Vorgespräch klären wir gemeinsam, wie wir damit umgehen.</div>
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">Gibt es eine Krankenkassenanerkennung?</button>
@@ -1424,7 +1517,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">Wie bewerbe ich mich?</button>
-        <div class="faq-answer">Du buchst zuerst ein kostenfreies Vorgespräch (30 min). Wir schauen gemeinsam, ob der Family Circle zu eurer Familie passt. Erst dann erfolgt die Anmeldung — kein Verkaufsgespräch, kein Druck.</div>
+        <div class="faq-answer">Du buchst zuerst ein kostenfreies Vorgespräch (30 min). Wir schauen gemeinsam, ob der Family Circle zu eurer Familie passt. Erst dann erfolgt die Anmeldung… kein Verkaufsgespräch, kein Druck.</div>
       </div>
     </div>
   </section>
@@ -1435,7 +1528,7 @@
     <div class="container">
       <span class="cta-script">Ihr seid bereit.</span>
       <h2>Wir auch.</h2>
-      <p>Das kostenfreie Vorgespräch ist unverbindlich — und der erste Schritt zurück zu euch selbst.</p>
+      <p>Das kostenfreie Vorgespräch ist unverbindlich… und der erste Schritt zurück zu euch selbst.</p>
       <a href="https://symphonyawareness.institute" class="btn btn-primary" style="font-size: 1rem; padding: 1.1rem 3rem;">
         Jetzt kostenfreies Vorgespräch buchen
       </a>
@@ -1473,9 +1566,12 @@
     }
 
     window.addEventListener('scroll', () => {
-      document.querySelector('nav').style.boxShadow = window.scrollY > 20
-        ? '0 2px 20px rgba(42,31,14,0.10)'
-        : 'none';
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
     });
   </script>
 
